@@ -1,0 +1,79 @@
+<h>Dices</h>
+<br/>
+DiceAmount:<input ng-model="roll.amount"/>
+<br/>
+Payout:<input ng-model="roll.payout"/>
+<br/>
+<button ng-click="rollIt(true)">High</button>
+<button ng-click="rollIt()">Low</button>
+
+<br/>
+<button ng-click="allOrMine()">All/Mine</button>
+<table id="dices" ng-if="dices.length">
+  <thead>
+    <tr class="head">
+      <th class="padding-in-1400">
+        <translate>Sender</translate>
+      </th>
+      <th class="hide-in-1400">
+        <translate>Transaction ID</translate>
+      </th>
+
+      <th>
+        <translate>Time</translate>
+      </th>
+      <th>
+        <translate>Amount (Fee)</translate>
+      </th>
+      <th>
+        <translate>Payout</translate>
+      </th>
+      <th>
+        <translate>LuckyNumber</translate>
+      </th>
+
+      <th>
+        <translate>Paidout</translate>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="dice in dices">
+      <td class="padding-in-1400">
+        <a href="#" ng-click="userInfo(dice.senderId)">{{dice.senderId}}</a>
+      </td>
+      <td class="hide-in-1400">
+        <a href="#" ng-click="transactionInfo(dice)">{{dice.id}}</a>
+      </td>
+      <td>
+        {{dice.timestamp | timeAgoFilter: false}}
+      </td>
+      <td>
+        {{dice.asset.dice.amount | liskFilter}} ({{dice.fee | liskFilter}})
+      </td>
+      <td>
+        {{dice.asset.dice.payout | liskFilter}}
+      </td>
+      <td>
+        <span style="font-size: 2em" ng-bind="dice.asset.dice.luckyNumber | luckyNumberFilter"></span>
+        <div ng-if="dice.asset.dice.rollHigh">&gt; <span ng-bind="dice.asset.dice.higherThan|chanceFilter"></span></div>
+        <div ng-if="!dice.asset.dice.rollHigh">&lt; <span ng-bind="dice.asset.dice.lowerThan|chanceFilter"></span></div> 
+      </td>
+
+      <td>
+        <span ng-if="!dice.asset.dice.resolveBlockHeight">Not confirmed yet.</span>
+        <div ng-if="dice.asset.dice.resolveBlockHeight">
+            <span ng-if="dice.asset.dice.paidOut==null">In progress</span>
+            <span ng-if="dice.asset.dice.paidOut!=null">{{dice.asset.dice.paidOut | liskFilter}}</span>
+        </div>
+        
+      </td>
+    </tr>
+  </tbody>
+</table>
+<div class="panel-body empty-body" ng-if="!dices.length">
+  <div class="logo-grey"></div>
+  <p class="empty-state-text">
+    {{'You have not made any dices yet.'|translate}}
+  </p>
+</div>

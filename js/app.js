@@ -31,6 +31,12 @@ liskApp.config(["ngClipProvider",
                 templateUrl: "/partials/template.html",
                 controller: "templateController"
             })
+            .state('main.dices', {
+                url: "/dices",
+                templateUrl: "/partials/dices.html",
+                controller: "diceController"
+            })
+            
             .state('main.dashboard', {
                 url: "/dashboard",
                 templateUrl: "/partials/account.html",

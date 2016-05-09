@@ -100,6 +100,7 @@ angular.module('liskApp').controller('appController', ['dappsService', '$scope',
         'main.votes',
         'main.forging',
         'main.blockchain',
+        'main.dices',
         'passphrase',
         'main.dappstore',
         'main.multi'

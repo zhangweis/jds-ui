@@ -24,7 +24,7 @@ msgstr ""
 msgid "{{voteList.length}} out of {{countStandby + countTop}} Delegates selected"
 msgstr ""
 
-#: partials/template.html:162
+#: partials/template.html:169
 msgid "2nd Passphrase"
 msgstr ""
 
@@ -74,6 +74,7 @@ msgid "Amount"
 msgstr ""
 
 #: partials/account.html:79
+#: partials/dices.html:26
 msgid "Amount (Fee)"
 msgstr ""
 
@@ -105,7 +106,7 @@ msgid "Block ID"
 msgstr ""
 
 #: js/controllers/blockchainController.js:8
-#: partials/template.html:117
+#: partials/template.html:124
 msgid "Blockchain"
 msgstr ""
 
@@ -126,7 +127,7 @@ msgstr ""
 msgid "CANCEL"
 msgstr ""
 
-#: partials/template.html:260
+#: partials/template.html:267
 msgid "CATEGORIES"
 msgstr ""
 
@@ -261,11 +262,12 @@ msgid "Copy Name"
 msgstr ""
 
 #: js/controllers/dappsController.js:8
-#: partials/template.html:90
+#: partials/template.html:97
 msgid "Dapp Store"
 msgstr ""
 
 #: js/controllers/accountController.js:8
+#: js/controllers/diceController.js:7
 #: partials/template.html:72
 msgid "Dashboard"
 msgstr ""
@@ -274,12 +276,12 @@ msgstr ""
 msgid "Delegate Name"
 msgstr ""
 
-#: partials/template.html:240
+#: partials/template.html:247
 msgid "delegate registration"
 msgstr ""
 
-#: partials/template.html:104
-#: partials/template.html:232
+#: partials/template.html:111
+#: partials/template.html:239
 msgid "Delegates"
 msgstr ""
 
@@ -287,12 +289,16 @@ msgstr ""
 msgid "Description"
 msgstr ""
 
+#: partials/template.html:90
+msgid "Dices"
+msgstr ""
+
 #: js/controllers/modals/errorModalController.js:10
 #: js/controllers/modals/forgingModalController.js:11
 msgid "Disable Forging"
 msgstr ""
 
-#: js/controllers/appController.js:315
+#: js/controllers/appController.js:316
 msgid "Disabled"
 msgstr ""
 
@@ -311,7 +317,7 @@ msgstr ""
 msgid "Enable Forging"
 msgstr ""
 
-#: js/controllers/appController.js:315
+#: js/controllers/appController.js:316
 msgid "Enabled"
 msgstr ""
 
@@ -360,12 +366,12 @@ msgstr ""
 #: js/controllers/delegatesController.js:9
 #: js/controllers/forgingController.js:83
 #: js/controllers/votedDelegatesController.js:8
-#: partials/template.html:229
-#: partials/template.html:96
+#: partials/template.html:103
+#: partials/template.html:236
 msgid "Forging"
 msgstr ""
 
-#: partials/template.html:245
+#: partials/template.html:252
 msgid "FORGING"
 msgstr ""
 
@@ -404,7 +410,7 @@ msgstr ""
 msgid "GO BACK"
 msgstr ""
 
-#: partials/template.html:137
+#: partials/template.html:144
 msgid "Go to previous page"
 msgstr ""
 
@@ -420,7 +426,7 @@ msgstr ""
 msgid "Height"
 msgstr ""
 
-#: partials/template.html:276
+#: partials/template.html:283
 msgid "HOME"
 msgstr ""
 
@@ -428,7 +434,7 @@ msgstr ""
 msgid "INSTALL"
 msgstr ""
 
-#: partials/template.html:282
+#: partials/template.html:289
 msgid "INSTALLED"
 msgstr ""
 
@@ -505,6 +511,7 @@ msgid "Loading dapps"
 msgstr ""
 
 #: js/controllers/accountController.js:7
+#: js/controllers/diceController.js:6
 msgid "Loading dashboard"
 msgstr ""
 
@@ -532,8 +539,12 @@ msgstr ""
 msgid "Loading..."
 msgstr ""
 
-#: partials/template.html:168
+#: partials/template.html:175
 msgid "Logout"
+msgstr ""
+
+#: partials/dices.html:32
+msgid "LuckyNumber"
 msgstr ""
 
 #: partials/modals/newUser.html:72
@@ -592,16 +603,16 @@ msgstr ""
 msgid "My Multi-Signature Groups"
 msgstr ""
 
-#: partials/template.html:159
+#: partials/template.html:166
 msgid "My Profile"
 msgstr ""
 
-#: partials/template.html:110
+#: partials/template.html:117
 #: partials/votes.html:24
 msgid "My Votes"
 msgstr ""
 
-#: partials/template.html:235
+#: partials/template.html:242
 msgid "My votes ({{myVotesCount||'0'}})"
 msgstr ""
 
@@ -659,7 +670,7 @@ msgstr ""
 msgid "Number of members"
 msgstr ""
 
-#: partials/template.html:248
+#: partials/template.html:255
 msgid "Off"
 msgstr ""
 
@@ -667,7 +678,7 @@ msgstr ""
 msgid "OK"
 msgstr ""
 
-#: partials/template.html:251
+#: partials/template.html:258
 msgid "On"
 msgstr ""
 
@@ -681,8 +692,16 @@ msgstr ""
 msgid "Others"
 msgstr ""
 
+#: partials/dices.html:36
+msgid "Paidout"
+msgstr ""
+
 #: partials/modals/newUser.html:66
 msgid "Passphrase"
+msgstr ""
+
+#: partials/dices.html:29
+msgid "Payout"
 msgstr ""
 
 #: js/controllers/walletPendingsController.js:8
@@ -854,16 +873,16 @@ msgstr ""
 msgid "Saving new dapp"
 msgstr ""
 
-#: partials/template.html:208
+#: partials/template.html:215
 msgid "Search for blocks"
 msgstr ""
 
-#: partials/template.html:308
-#: partials/template.html:333
+#: partials/template.html:315
+#: partials/template.html:340
 msgid "Search for Dapps"
 msgstr ""
 
-#: partials/template.html:182
+#: partials/template.html:189
 msgid "Search for transactions (Transaction ID, Sender address, Recipient address)"
 msgstr ""
 
@@ -871,7 +890,7 @@ msgstr ""
 msgid "Second Passphrase"
 msgstr ""
 
-#: partials/template.html:149
+#: partials/template.html:156
 msgid "SEND"
 msgstr ""
 
@@ -891,11 +910,12 @@ msgstr ""
 
 #: js/controllers/transactionsController.js:63
 #: partials/account.html:70
+#: partials/dices.html:16
 msgid "Sender"
 msgstr ""
 
 #: js/controllers/settingsController.js:6
-#: partials/template.html:165
+#: partials/template.html:172
 msgid "Settings"
 msgstr ""
 
@@ -999,6 +1019,7 @@ msgstr ""
 #: js/controllers/walletsController.js:147
 #: js/controllers/walletTransactionsController.js:69
 #: partials/account.html:76
+#: partials/dices.html:23
 #: partials/modals/blockInfo.html:38
 #: partials/modals/transactionInfo.html:25
 #: partials/modals/userInfo.html:69
@@ -1009,7 +1030,7 @@ msgstr ""
 msgid "To become a delegate, click on the \"Delegate Registration\" button."
 msgstr ""
 
-#: partials/template.html:130
+#: partials/template.html:137
 msgid "Toggle navigation"
 msgstr ""
 
@@ -1038,6 +1059,7 @@ msgstr ""
 #: js/controllers/walletsController.js:145
 #: js/controllers/walletTransactionsController.js:67
 #: partials/account.html:67
+#: partials/dices.html:19
 #: partials/modals/blockModal.html:17
 #: partials/modals/userInfo.html:52
 #: partials/modals/userInfo.html:76
@@ -1115,6 +1137,10 @@ msgstr ""
 
 #: partials/forging.html:106
 msgid "You have not forged any blocks yet."
+msgstr ""
+
+#: partials/dices.html:77
+msgid "You have not made any dices yet."
 msgstr ""
 
 #: partials/account.html:109
