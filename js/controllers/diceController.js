@@ -39,7 +39,7 @@ angular.module('liskApp').controller('diceController', ['$state','$scope', '$roo
         $scope.onlyMine = !$scope.onlyMine;
     }
     $scope.rollIt = function(high){
-        var body = {"dice": {"amount":$scope.roll.amount*100000000,"payout":$scope.roll.payout*100000000, "rollHigh":high?true:false},"secret": userService.rememberedPassphrase};
+        var body = {"dice": {"amount":$scope.roll.amount*100000000,"payout":$scope.roll.payout*100000000, "rollHigh":high?1:0},"secret": userService.rememberedPassphrase};
         console.log(body);
         $http.put('/api/dices/add', body).then(function(){
             alert('dice sent');
