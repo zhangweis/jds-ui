@@ -31,8 +31,8 @@ angular.module('liskApp').controller('diceController', ['$state','$scope', '$roo
         });
     }
     $scope.roll = {
-        amount: 9,
-        payout: 11
+        amount: 1000,
+        payout: 2000
     }
     $scope.onlyMine = false;
     $scope.allOrMine = function(){
