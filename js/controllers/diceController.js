@@ -46,6 +46,7 @@ angular.module('liskApp').controller('diceController', ['$state','$scope', '$roo
     $scope.onlyMine = false;
     $scope.allOrMine = function(){
         $scope.onlyMine = !$scope.onlyMine;
+        $scope.updateAppView();
     }
     $scope.rollIt = function(high){
         var body = {"dice": {"amount":$scope.roll.amount*100000000,"payout":$scope.roll.payout*100000000, "rollHigh":high?1:0},"secret": userService.rememberedPassphrase};
