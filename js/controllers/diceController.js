@@ -26,10 +26,19 @@ angular.module('liskApp').controller('diceController', ['$state','$scope', '$roo
                 var chanceToWin = 99/times;
                 dice.lowerThan = chanceToWin*10000;
                 dice.higherThan = (100- chanceToWin)*10000-1;
+//                dice.submitting = $scope.rolls.filter(function(roll) {return tx.id==roll.id}).length>0;
+            });
+            $scope.rolls.filter(function(roll){
+                return dices.filter(function(tx) {
+                    return tx.id == roll.id;
+                }).length<=0;
+            }).forEach(function(submittingRoll) {
+                dices.unshift(submittingRoll);
             })
             $scope.dices = dices;
         });
     }
+    $scope.rolls = [];
     $scope.roll = {
         amount: 1000,
         payout: 2000
@@ -40,9 +49,12 @@ angular.module('liskApp').controller('diceController', ['$state','$scope', '$roo
     }
     $scope.rollIt = function(high){
         var body = {"dice": {"amount":$scope.roll.amount*100000000,"payout":$scope.roll.payout*100000000, "rollHigh":high?1:0},"secret": userService.rememberedPassphrase};
-        console.log(body);
-        $http.put('/api/dices/add', body).then(function(){
-            alert('dice sent');
+        $http.put('/api/dices/add', body).then(function(res){
+            var d = new Date(Date.UTC(2015, 3, 9, 0, 0, 0, 0));
+            var t = parseInt(d.getTime() / 1000);
+            
+            $scope.rolls.push({senderId:userService.address, asset:body, id: res.data.id, timestamp: new Date().getTime()/1000 - t});
+            $scope.updateAppView();
         });
     }
     // $scope.$on('updateControllerData', function (event, data) {
@@ -52,7 +64,7 @@ angular.module('liskApp').controller('diceController', ['$state','$scope', '$roo
     // });
     var interval = $interval(function(){
         $scope.updateAppView();
-    }, 3000);
+    }, 10000);
     $scope.$on('$destroy', function(){
         $interval.cancel(interval);
     })
