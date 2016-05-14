@@ -54,7 +54,7 @@ Payout:<input ng-model="roll.payout"/>
       <td>
         {{dice.asset.dice.payout | liskFilter}}
       </td>
-      <td>
+      <td ng-class="{inprogress:dice.asset.dice.paidOut==null, lose:dice.asset.dice.paidOut==0, win:dice.asset.dice.paidOut>0}">
         <span style="font-size: 2em" ng-bind="dice.asset.dice.luckyNumber | luckyNumberFilter"></span>
         <div ng-if="dice.asset.dice.rollHigh">&gt; <span ng-bind="dice.asset.dice.higherThan|chanceFilter"></span></div>
         <div ng-if="!dice.asset.dice.rollHigh">&lt; <span ng-bind="dice.asset.dice.lowerThan|chanceFilter"></span></div> 
