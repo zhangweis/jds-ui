@@ -1,8 +1,14 @@
 <h>Dices</h>
 <br/>
-DiceAmount:<input ng-model="roll.amount"/>
+IncrementTimes:
+<input ng-model="times"/>
 <br/>
-Payout:<input ng-model="roll.payout"/>
+DiceAmount:
+<button ng-click="changeAmountBy(times)">X<span ng-bind="times"></span></button>
+<button ng-click="changeAmountBy(1/times)">/<span ng-bind="times"></span></button>
+<input ng-model="roll.amount" ng-change="rollAmountChanged(roll.amount)"/>
+<br/>
+Payout:<span ng-bind="roll.payout/roll.amount">2</span>x<input ng-model="roll.payout" ng-change="rollPayoutChanged(roll.payout)"/>
 <br/>
 <button ng-click="rollIt(true)">High</button>
 <button ng-click="rollIt()">Low</button>
@@ -63,7 +69,7 @@ Payout:<input ng-model="roll.payout"/>
       <td>
         <span ng-if="!dice.asset.dice.resolveBlockHeight">Not confirmed yet.</span>
         <div ng-if="dice.asset.dice.resolveBlockHeight">
-            <span ng-if="dice.asset.dice.paidOut==null">In progress</span>
+            <span ng-if="dice.asset.dice.paidOut==null">In progress ({{dice.asset.dice.resolveBlockHeight - currentHeight}} blocks left)</span>
             <span ng-if="dice.asset.dice.paidOut!=null">{{dice.asset.dice.paidOut | liskFilter}}</span>
         </div>
         

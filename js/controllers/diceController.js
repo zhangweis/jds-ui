@@ -16,33 +16,50 @@ angular.module('liskApp').controller('diceController', ['$state','$scope', '$roo
     $scope.transactionsLoading = true;
 
     $scope.updateAppView = function () {
-        $http.get("/api/dices/list", {params: {address: $scope.onlyMine?userService.address:null}})
-        .then(function (resp) {
-            $scope.view.inLoading = false;
-            var dices = resp.data.dices;
-            dices.forEach(function(tx){
-                var dice = tx.asset.dice;
-                var times = (parseInt(dice.payout)/parseInt(dice.amount));
-                var chanceToWin = 99/times;
-                dice.lowerThan = chanceToWin*10000;
-                dice.higherThan = (100- chanceToWin)*10000-1;
-//                dice.submitting = $scope.rolls.filter(function(roll) {return tx.id==roll.id}).length>0;
-            });
-            $scope.rolls.filter(function(roll){
-                return dices.filter(function(tx) {
-                    return tx.id == roll.id;
-                }).length<=0;
-            }).forEach(function(submittingRoll) {
-                dices.unshift(submittingRoll);
-            })
-            $scope.dices = dices;
+        $http.get("/api/blocks/getHeight", {params: {address: $scope.onlyMine?userService.address:null}}).then(function(heightResp){
+            $http.get("/api/dices/list", {params: {address: $scope.onlyMine?userService.address:null}})
+                    .then(function (resp) {
+                        $scope.currentHeight = heightResp.data.height;
+                        $scope.view.inLoading = false;
+                        var dices = resp.data.dices;
+                        dices.forEach(function(tx){
+                            var dice = tx.asset.dice;
+                            var times = (parseInt(dice.payout)/parseInt(dice.amount));
+                            var chanceToWin = 99/times;
+                            dice.lowerThan = chanceToWin*10000;
+                            dice.higherThan = (100- chanceToWin)*10000-1;
+            //                dice.submitting = $scope.rolls.filter(function(roll) {return tx.id==roll.id}).length>0;
+                        });
+                        $scope.rolls.filter(function(roll){
+                            return dices.filter(function(tx) {
+                                return tx.id == roll.id;
+                            }).length<=0;
+                        }).forEach(function(submittingRoll) {
+                            dices.unshift(submittingRoll);
+                        })
+                        $scope.dices = dices;
+                    });
         });
     }
+    $scope.rollAmountChanged = function(amount) {
+        $scope.roll.payout = amount * $scope.roll.x;
+    }
+    $scope.rollPayoutChanged = function(payout) {
+        $scope.roll.x = payout / $scope.roll.amount;
+    }
+    $scope.changeAmountBy = function(by) {
+        $scope.roll.amount*=by;
+        
+        $scope.rollAmountChanged($scope.roll.amount);
+    }
+
     $scope.rolls = [];
     $scope.roll = {
         amount: 1000,
-        payout: 2000
+        payout: 2000,
+        x: 2
     }
+    $scope.times = 2;
     $scope.onlyMine = false;
     $scope.allOrMine = function(){
         $scope.onlyMine = !$scope.onlyMine;
@@ -65,7 +82,7 @@ angular.module('liskApp').controller('diceController', ['$state','$scope', '$roo
     // });
     var interval = $interval(function(){
         $scope.updateAppView();
-    }, 10000);
+    }, 5000);
     $scope.$on('$destroy', function(){
         $interval.cancel(interval);
     })

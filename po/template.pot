@@ -74,7 +74,7 @@ msgid "Amount"
 msgstr ""
 
 #: partials/account.html:79
-#: partials/dices.html:26
+#: partials/dices.html:32
 msgid "Amount (Fee)"
 msgstr ""
 
@@ -543,7 +543,7 @@ msgstr ""
 msgid "Logout"
 msgstr ""
 
-#: partials/dices.html:32
+#: partials/dices.html:38
 msgid "LuckyNumber"
 msgstr ""
 
@@ -692,7 +692,7 @@ msgstr ""
 msgid "Others"
 msgstr ""
 
-#: partials/dices.html:36
+#: partials/dices.html:42
 msgid "Paidout"
 msgstr ""
 
@@ -700,7 +700,7 @@ msgstr ""
 msgid "Passphrase"
 msgstr ""
 
-#: partials/dices.html:29
+#: partials/dices.html:35
 msgid "Payout"
 msgstr ""
 
@@ -910,7 +910,7 @@ msgstr ""
 
 #: js/controllers/transactionsController.js:63
 #: partials/account.html:70
-#: partials/dices.html:16
+#: partials/dices.html:22
 msgid "Sender"
 msgstr ""
 
@@ -1019,7 +1019,7 @@ msgstr ""
 #: js/controllers/walletsController.js:147
 #: js/controllers/walletTransactionsController.js:69
 #: partials/account.html:76
-#: partials/dices.html:23
+#: partials/dices.html:29
 #: partials/modals/blockInfo.html:38
 #: partials/modals/transactionInfo.html:25
 #: partials/modals/userInfo.html:69
@@ -1059,7 +1059,7 @@ msgstr ""
 #: js/controllers/walletsController.js:145
 #: js/controllers/walletTransactionsController.js:67
 #: partials/account.html:67
-#: partials/dices.html:19
+#: partials/dices.html:25
 #: partials/modals/blockModal.html:17
 #: partials/modals/userInfo.html:52
 #: partials/modals/userInfo.html:76
@@ -1139,7 +1139,7 @@ msgstr ""
 msgid "You have not forged any blocks yet."
 msgstr ""
 
-#: partials/dices.html:77
+#: partials/dices.html:83
 msgid "You have not made any dices yet."
 msgstr ""
 
